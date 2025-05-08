@@ -19,7 +19,7 @@ const logger = createLogger('WebhookTriggerAPI')
 
 // Define Next.js config for webhook processing
 export const dynamic = 'force-dynamic' // Ensure dynamic rendering
-export const maxDuration = 300 // 5 minutes max execution time
+export const maxDuration = 60 // 5 minutes max execution time
 
 // Storage for active processing tasks to prevent garbage collection
 const activeProcessingTasks = new Map<string, Promise<any>>()
