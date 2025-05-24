@@ -18,7 +18,7 @@ import { webhook, workflow } from '@/db/schema'
 const logger = createLogger('WebhookTriggerAPI')
 
 export const dynamic = 'force-dynamic'
-export const maxDuration = 300
+export const maxDuration = 60
 
 const _activeProcessingTasks = new Map<string, Promise<any>>()
 
