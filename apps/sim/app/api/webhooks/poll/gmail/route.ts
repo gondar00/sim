@@ -8,7 +8,7 @@ import { pollGmailWebhooks } from '@/lib/webhooks/gmail-polling-service'
 const logger = new Logger('GmailPollingAPI')
 
 export const dynamic = 'force-dynamic'
-export const maxDuration = 180 // Allow up to 3 minutes for polling to complete
+export const maxDuration = 60 // Allow up to 3 minutes for polling to complete
 
 const LOCK_KEY = 'gmail-polling-lock'
 const LOCK_TTL_SECONDS = 180 // Same as maxDuration (3 min)
