@@ -10,6 +10,7 @@ export interface MemoryResponse extends ToolResponse {
 export interface AgentMemoryData {
   role: 'user' | 'assistant' | 'system'
   content: string
+  createdAt: string
 }
 
 export interface RawMemoryData {
