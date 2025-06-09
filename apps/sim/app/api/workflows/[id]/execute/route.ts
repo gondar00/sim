@@ -44,22 +44,22 @@ async function executeWorkflow(workflow: any, requestId: string, input?: any) {
   const executionId = uuidv4()
 
   // Skip if this workflow is already running
-  if (runningExecutions.has(workflowId)) {
-    logger.warn(`[${requestId}] Workflow is already running: ${workflowId}`)
-    throw new Error('Workflow is already running')
-  }
+  // if (runningExecutions.has(workflowId)) {
+  //   logger.warn(`[${requestId}] Workflow is already running: ${workflowId}`)
+  //   throw new Error('Workflow is already running')
+  // }
 
-  // Check if the user has exceeded their usage limits
-  const usageCheck = await checkServerSideUsageLimits(workflow.userId)
-  if (usageCheck.isExceeded) {
-    logger.warn(`[${requestId}] User ${workflow.userId} has exceeded usage limits`, {
-      currentUsage: usageCheck.currentUsage,
-      limit: usageCheck.limit,
-    })
-    throw new UsageLimitError(
-      usageCheck.message || 'Usage limit exceeded. Please upgrade your plan to continue.'
-    )
-  }
+  // // Check if the user has exceeded their usage limits
+  // const usageCheck = await checkServerSideUsageLimits(workflow.userId)
+  // if (usageCheck.isExceeded) {
+  //   logger.warn(`[${requestId}] User ${workflow.userId} has exceeded usage limits`, {
+  //     currentUsage: usageCheck.currentUsage,
+  //     limit: usageCheck.limit,
+  //   })
+  //   throw new UsageLimitError(
+  //     usageCheck.message || 'Usage limit exceeded. Please upgrade your plan to continue.'
+  //   )
+  // }
 
   // Log input to help debug
   logger.info(
