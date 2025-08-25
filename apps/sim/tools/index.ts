@@ -364,7 +364,7 @@ async function handleInternalRequest(
     const requestOptions = {
       method: requestParams.method,
       headers: new Headers(requestParams.headers),
-      body: requestParams.body,
+      body: requestParams.body ? JSON.stringify(requestParams.body) : undefined,
     }
 
     const response = await fetch(fullUrl, requestOptions)
